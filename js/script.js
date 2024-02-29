@@ -5,20 +5,21 @@
 function durationBetweenDates(
   firstDate = "2019-04-12",
   lastDate = "2020-06-30",
-  dimension
+  dimension = "milliseconds"
 ) {
-  let day1 = new Date(firstDate);
-  let day2 = new Date(lastDate);
-  let duration = Math.abs(day2.getTime() - day1.getTime());
+  let duration = Math.abs(
+    new Date(lastDate).getTime() - new Date(firstDate).getTime()
+  );
 
-  if (dimension === "seconds") {
-    return duration / 1000;
-  } else if (dimension === "hours") {
-    return duration / (1000 * 60 * 60);
-  } else if (dimension === "days") {
-    return duration / (1000 * 60 * 60 * 24);
-  } else {
-    return duration;
+  switch (dimension) {
+    case "seconds":
+      return duration / 1000 + " seconds";
+    case "hours":
+      return duration / (1000 * 60 * 60) + " hours";
+    case "days":
+      return duration / (1000 * 60 * 60 * 24) + " days";
+    default:
+      return duration + " milliseconds";
   }
 }
 
