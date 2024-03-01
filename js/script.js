@@ -13,13 +13,13 @@ function durationBetweenDates(
 
   switch (dimension) {
     case "seconds":
-      return duration / 1000 + " seconds";
+      return `${duration / 1000} ${dimension}`;
     case "hours":
-      return duration / (1000 * 60 * 60) + " hours";
+      return `${duration / (1000 * 60 * 60)} ${dimension}`;
     case "days":
-      return duration / (1000 * 60 * 60 * 24) + " days";
+      return `${duration / (1000 * 60 * 60 * 24)} ${dimension}`;
     default:
-      return duration + " milliseconds";
+      return `${duration} ${dimension}`;
   }
 }
 
